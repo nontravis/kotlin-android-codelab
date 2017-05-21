@@ -1,0 +1,31 @@
+/** Add module here **/
+List<Module> myModuleList = new ArrayList<>()
+myModuleList.with {
+    add(new Module(name: ":KotlinCodelab", path: ":app"))
+//    add(new Module(name: ":MyLibrary", path: "../myLibrary"))
+}
+
+myModuleList.forEach {
+    addProject(it.getName(), it.getPath())
+}
+
+/** Method call **/
+void addProject(String name, String path) {
+    include name
+    if (path != null) {
+        if (path == ":app") {
+            project(name).projectDir = new File('app')
+        } else {
+            project(name).projectDir = new File(settingsDir, path)
+        }
+    }
+}
+
+class Module {
+    String name
+    String path
+}
+
+
+
+
