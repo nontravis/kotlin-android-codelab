@@ -2,7 +2,7 @@
 
 ![alt text](./picture/codelab-logo.png)
 
-[[TH] kotlin codelab blog]()
+[[TH] kotlin codelab blog](https://blog.nextzy.me/why-we-use-kotlin-and-code-labs-3b0b02a2ad6b)
 
 [EN] kotlin codelab blog [comming soon]
 
