@@ -25,19 +25,21 @@ To do it, open
 [reference to the Kotlin language](https://www.kotlinlang.org/docs/reference/)
 and try it in this code lab.
 
-<img src="./picture/compiler.png" height="418" width="1000">
+![lecture](./picture/compiler.png)
 
 
 ## 「 Lecture 」
 So this codelab we follow the doc reference at [kotlinlang.org/docs/reference/](https://www.kotlinlang.org/docs/reference/)
 
-<img src="./picture/lecture.png" height="440" width="1000">
+![lecture](./picture/lecture.png)
 
 The class represents the lecture topic, there are two main parts in each class:
 
 1. **Lecture section**: a sample code for each lecture.
 2. **Try section**: there's example code in this section already, you can modify and play with it
 result message will be displayed in logcat.
+
+![lecture](./picture/app.png)
 
 The button will replace the class or lecture
 
@@ -49,7 +51,6 @@ fun setupLogcatMessage(): String {
 ```
 to show in your logcat
 
-![lecture](./picture/app.png)
 
 ![lecture](./picture/logcat.png)
 
