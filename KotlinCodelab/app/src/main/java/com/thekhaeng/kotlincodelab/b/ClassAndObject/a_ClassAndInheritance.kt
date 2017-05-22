@@ -23,14 +23,17 @@ class a_ClassAndInheritance : TryItClass() {
     class Primary1 constructor(var firstName: String) { // default is val
 
     }
-
     //or
     class Primary2(firstName: String) {
     }
-    //or
+    // NOTE: On the JVM, if all of the parameters of the primary constructor have default values, the compiler
+    class Customer(val customerName: String) // = class Customer(val customerName: String = "")
+
+
+    /** 2. Init primary constructor **/
     /** The primary constructor cannot contain any code. Initialization code can be placed in **/
     /** initializer blocks, which are prefixed with the init keyword: **/
-    class Primary(firstName: String) {
+    class Primary3(firstName: String) {
         val upperFirstName: String
 
         init { // use with primary code
@@ -38,11 +41,10 @@ class a_ClassAndInheritance : TryItClass() {
             // some code ...
         }
     }
-
-    class Secondary1(
+    //or
+    class Primary4(
             firstName: String,
             lastName: String) {
-
         var fullName: String = ""
 
         init {
@@ -50,11 +52,8 @@ class a_ClassAndInheritance : TryItClass() {
         }
     }
 
-    // NOTE: On the JVM, if all of the parameters of the primary constructor have default values, the compiler
-    class Customer(val customerName: String) // = class Customer(val customerName: String = "")
 
-
-    /** 2. Secondary constructor **/
+    /** 3. Secondary constructor **/
     //NOTE: This pattern it's more readable
     open class Secondary2 {
         var firstName: String
@@ -75,7 +74,7 @@ class a_ClassAndInheritance : TryItClass() {
     }
 
 
-    /** 3. Inheritance **/
+    /** 4. Inheritance **/
     /** The open annotation on a class is the opposite of Java's final: it allows others
      *  to inherit from this class. By default, NOTE: all classes in Kotlin are final, method also
      **/
@@ -88,7 +87,7 @@ class a_ClassAndInheritance : TryItClass() {
     }
 
 
-    /** 4. Interface **/
+    /** 5. Interface **/
     interface BarInterface {
         val count: Int
 
@@ -102,7 +101,7 @@ class a_ClassAndInheritance : TryItClass() {
     class Bar1(override val count: Int) : BarInterface
 
 
-    /** 5. Override rules **/
+    /** 6. Override rules **/
     open class Bar2 {
 
         open fun f(): String {
@@ -125,7 +124,7 @@ class a_ClassAndInheritance : TryItClass() {
         }
     }
 
-    /** 6. Abstract class **/
+    /** 7. Abstract class **/
     abstract class Base {
         abstract fun f()
     }
@@ -135,7 +134,7 @@ class a_ClassAndInheritance : TryItClass() {
     }
 
 
-    /** 7. Companion Objects **/
+    /** 8. Companion Objects **/
     /** In Kotlin, unlike Java or C#, NOTE: kotlin classes do not have static methods.
      *  If you need to write a function that can be called without having a class instance but
      *  needs access to the internals of a class (for example, a factory method),
