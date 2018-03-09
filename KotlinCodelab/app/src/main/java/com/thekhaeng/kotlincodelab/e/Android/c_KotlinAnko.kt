@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_extension.extension_tv_2 as tvExt
  * Created by thekhaeng on 5/21/2017 AD.
  */
 
-class ExampleActivity2 : AppCompatActivity() {
+class KotlinAnkoDemoActivity : AppCompatActivity() {
 
     /**
      * NOTE: create layouts from code

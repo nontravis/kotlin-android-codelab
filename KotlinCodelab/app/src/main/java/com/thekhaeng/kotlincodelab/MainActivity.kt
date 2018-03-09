@@ -1,6 +1,7 @@
 package com.thekhaeng.kotlincodelab
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
@@ -18,6 +19,9 @@ import com.thekhaeng.kotlincodelab.c.FuctionsAndLamdas.b_Lambdas
 import com.thekhaeng.kotlincodelab.c.FuctionsAndLamdas.c_InlineFunctions
 import com.thekhaeng.kotlincodelab.c.FuctionsAndLamdas.d_Coroutines
 import com.thekhaeng.kotlincodelab.d.Other.*
+import com.thekhaeng.kotlincodelab.e.Android.AndroidExtensionDemoActivity
+import com.thekhaeng.kotlincodelab.e.Android.KotlinAnkoDemoActivity
+import com.thekhaeng.kotlincodelab.e.Android.UtilityDemoActivity
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.textColor
 
@@ -29,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        containerLecture = findViewById(R.id.container_lecture) as LinearLayout?
+        containerLecture = findViewById(R.id.container_lecture)
 
         containerLecture?.addView(createTitle("Basics"))
         containerLecture?.addView(createTryButton(a_BasicType()))
@@ -72,6 +76,11 @@ class MainActivity : AppCompatActivity() {
         containerLecture?.addView(createTryButton(k_Reflection()))
         containerLecture?.addView(createTryButton(l_TypeSafeBuilders()))
         containerLecture?.addView(createTryButton(m_TypeAliases()))
+
+        containerLecture?.addView(createTitle("Android"))
+        containerLecture?.addView(createTryActivity(AndroidExtensionDemoActivity::class.java))
+        containerLecture?.addView(createTryActivity(UtilityDemoActivity::class.java))
+        containerLecture?.addView(createTryActivity(KotlinAnkoDemoActivity::class.java))
     }
 
     @SuppressLint("SetTextI18n")
@@ -92,10 +101,23 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     fun createTryButton(tryIt: TryItClass): Button {
         val className = tryIt.javaClass.simpleName
-        val space = resources.getDimension(R.dimen.default_padding_margin_large).toInt()
         val btn = TryItButton(this)
         btn.tryIt = tryIt
         btn.text = "Try $className.kt"
+        decorateButton(btn)
+        return btn
+    }
+
+    @SuppressLint("SetTextI18n")
+    fun createTryActivity(activityClass: Class<*>): Button {
+        val btn = Button(this)
+        btn.text = "Open ${activityClass.simpleName}"
+        decorateButton(btn)
+        btn.setOnClickListener { startActivity(Intent(this, activityClass)) }
+        return btn
+    }
+
+    private fun decorateButton(btn: Button) {
         btn.setAllCaps(false)
         btn.textColor = (ContextCompat.getColor(this, R.color.md_white))
         btn.backgroundColor = ContextCompat.getColor(this, R.color.colorAccent)
@@ -103,8 +125,8 @@ class MainActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT)
         val margin = btn.layoutParams as ViewGroup.MarginLayoutParams
+        val space = resources.getDimension(R.dimen.default_padding_margin_large).toInt()
         margin.setMargins(space, 0, space, space)
-        return btn
     }
 
 

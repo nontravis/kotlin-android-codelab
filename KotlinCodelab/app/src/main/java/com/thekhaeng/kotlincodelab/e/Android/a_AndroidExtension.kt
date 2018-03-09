@@ -1,12 +1,13 @@
-package com.thekhaeng.kotlincodelab
+package com.thekhaeng.kotlincodelab.e.Android
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.thekhaeng.kotlincodelab.R
 import kotlinx.android.synthetic.main.activity_extension.extension_container as extensionContainer
 import kotlinx.android.synthetic.main.activity_extension.extension_tv_1 as tvExtension1
 import kotlinx.android.synthetic.main.activity_extension.extension_tv_2 as tvExtension2
 
-class a_AndroidExtensions : AppCompatActivity() {
+class AndroidExtensionDemoActivity : AppCompatActivity() {
 
     /**
      * NOTE: apply plugin: 'kotlin-android-extensions'

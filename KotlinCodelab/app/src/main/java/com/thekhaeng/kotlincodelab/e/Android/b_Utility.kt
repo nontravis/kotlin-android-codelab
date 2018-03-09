@@ -42,7 +42,7 @@ fun Activity.getAppVersion(activity: Activity):String{
     return "0.0"
 }
 
-class ExampleActivity : AppCompatActivity() {
+class UtilityDemoActivity : AppCompatActivity() {
 
     override
     fun onCreate(savedInstanceState: Bundle?) {

@@ -5,6 +5,7 @@ import android.support.v7.widget.AppCompatButton
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 
 /**
  * Created by thekhaeng on 5/19/2017 AD.
@@ -17,13 +18,15 @@ class TryItButton : AppCompatButton {
 
     var tryIt: TryItClass? = null
 
-    constructor(context: Context?) : super(context){
-       init()
-    }
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs){
+    constructor(context: Context?) : super(context) {
         init()
     }
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr){
+
+    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+        init()
+    }
+
+    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         init()
     }
 
@@ -38,6 +41,7 @@ class TryItButton : AppCompatButton {
 
     fun printLogTry() {
         val str = tryIt?.getTryItString()
+        Toast.makeText(context, "See log", Toast.LENGTH_SHORT).show()
         Log.i(TAG, str)
     }
 
