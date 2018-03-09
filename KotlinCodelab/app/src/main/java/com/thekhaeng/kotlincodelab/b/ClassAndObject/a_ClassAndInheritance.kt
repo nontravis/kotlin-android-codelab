@@ -50,6 +50,7 @@ class a_ClassAndInheritance : TryItClass() {
         init {
             this.fullName = firstName + " " + lastName
         }
+
     }
 
 
